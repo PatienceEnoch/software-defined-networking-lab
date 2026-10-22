@@ -1,0 +1,52 @@
+{
+  "_note": "Documentation template only. Replace node ID, flow IDs, priorities, matches, and output ports with values from the verified lab backup and ovs-ofctl -O OpenFlow13 show.",
+  "flow-node-inventory:flow": [
+    {
+      "id": "pc1-to-pc2-example",
+      "table_id": 0,
+      "priority": 100,
+      "match": {
+        "ethernet-match": {
+          "ethernet-type": { "type": 2048 }
+        },
+        "ipv4-destination": "192.168.10.2/32"
+      },
+      "instructions": {
+        "instruction": [
+          {
+            "order": 0,
+            "apply-actions": {
+              "action": [
+                { "order": 0, "output-action": { "output-node-connector": "<pc2-port>" } }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "pc2-to-pc1-example",
+      "table_id": 0,
+      "priority": 100,
+      "match": {
+        "ethernet-match": {
+          "ethernet-type": { "type": 2048 }
+        },
+        "ipv4-destination": "192.168.10.1/32"
+      },
+      "instructions": {
+        "instruction": [
+          {
+            "order": 0,
+            "apply-actions": {
+              "action": [
+                { "order": 0, "output-action": { "output-node-connector": "<pc1-port>" } }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+
