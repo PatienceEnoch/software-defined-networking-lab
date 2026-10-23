@@ -1,8 +1,10 @@
 # Software Defined Networking lab
 
-This repository documents the verified portion of a GNS3 software-defined networking lab built on 21 October 2026. The project uses GNS3, an Open vSwitch Docker node, two VPCS hosts, an OpenDaylight controller on a separate Ubuntu VM, OpenFlow 1.3, and RESTCONF.
+This is my software-defined networking lab, built on 21 October 2026 with GNS3, Open vSwitch, OpenDaylight, OpenFlow 1.3, and RESTCONF. The setup is small: two VPCS hosts, one virtual switch, and a controller on a separate Ubuntu VM. I built it to get hands-on with controller-managed forwarding and see what it takes to keep the setup working after a restart.
 
-## Verified lab record
+Two PCs talking to each other sounds simple until you put yourself in charge of the packets.
+
+## The setup
 
 The checked-in GNS3 project is `SDN-OpenFlow-Lab`. Its topology contains:
 
@@ -25,11 +27,11 @@ The project notes record the following management/control addresses:
 
 The project file records GNS3 format `2.2.61` and the Docker image `gns3/openvswitch:latest`. The OpenDaylight VM and its controller data are external to this GNS3 project export.
 
-## What was verified
+## What works so far
 
-The supplied lab record says controller-to-switch communication was established, bidirectional forwarding rules were programmed with HTTP PUT requests and JSON, and traffic forwarding between the two virtual hosts was tested successfully. It also records persistent OVS management networking, automatic controller reconnection and flow restoration after an OVS restart, and a separate JSON backup of the rules.
+My lab notes record a working controller-to-switch connection, bidirectional forwarding rules pushed with HTTP PUT requests and JSON, and successful traffic tests between the two hosts. They also record persistent OVS management networking, controller reconnection and flow restoration after an OVS restart, and a separate JSON backup of the rules.
 
-Those statements describe the recorded lab result. The original flow backup is not present in this checkout, so `examples/flow-rules.example.json` is a documentation template, not a claim that these exact flow IDs or port numbers were installed.
+These are results from the original lab session; I have not rerun the live checks for this README update. The original flow backup is not present in this checkout, so `examples/flow-rules.example.json` is a documentation template, not a claim that these exact flow IDs or port numbers were installed.
 
 ## RESTCONF and OpenFlow 1.3 workflow
 
@@ -58,7 +60,13 @@ The example JSON uses the OpenFlow plugin's `flow-node-inventory:flow` wrapper a
 
 The `gns3/` directory contains the project definition and VPCS startup files. No credentials, controller database, VM disk, or unverified flow dump is included.
 
-## Sources
+## Next up
+
+- Check what survives a controller restart and a full lab shutdown.
+- Try a narrowly scoped traffic-blocking rule and verify both blocked and allowed traffic.
+- Build Python automation for RESTCONF, starting with read-only requests.
+
+## References
 
 - [OpenDaylight OpenFlow operations](https://docs.opendaylight.org/projects/openflowplugin/en/latest/users/operation.html)
 - [OpenDaylight flow examples](https://docs.opendaylight.org/projects/openflowplugin/en/latest/users/flow-examples.html)
