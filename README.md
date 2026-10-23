@@ -60,6 +60,10 @@ The example JSON uses the OpenFlow plugin's `flow-node-inventory:flow` wrapper a
 
 The `gns3/` directory contains the project definition and VPCS startup files. No credentials, controller database, VM disk, or unverified flow dump is included.
 
+## How to use this repo
+
+Start with the topology file and the project notes if you want to inspect the saved lab. Read the validation notes before starting anything in GNS3. The controller VM, Docker image, credentials, and working flow backup are deliberately kept outside this repository, so opening the project file by itself will not recreate the whole lab.
+
 ## Next up
 
 - Check what survives a controller restart and a full lab shutdown.
