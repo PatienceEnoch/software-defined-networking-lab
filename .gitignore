@@ -1,0 +1,14 @@
+# OpenDaylight installation
+karaf-0.24.0/
+karaf-0.24.0.tar.gz
+
+# Python temporary files
+__pycache__/
+*.pyc
+
+# Backup copies of scripts
+*.bak
+
+# Local secrets
+.env
+.env.*
