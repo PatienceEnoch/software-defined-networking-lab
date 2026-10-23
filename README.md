@@ -1,12 +1,12 @@
 # Software Defined Networking lab
 
-This is my software-defined networking lab, built on 21 October 2026 with GNS3, Open vSwitch, OpenDaylight, OpenFlow 1.3, and RESTCONF. The setup is small: two VPCS hosts, one virtual switch, and a controller on a separate Ubuntu VM. I built it to get hands-on with controller-managed forwarding and see what it takes to keep the setup working after a restart.
+This is my software defined networking lab, built on 21 October 2026 with GNS3, Open vSwitch, OpenDaylight, OpenFlow 1.3, and RESTCONF. The setup is small: two VPCS hosts, one virtual switch, and a controller on a separate Ubuntu VM. I built it to get hands-on with controller-managed forwarding and see what it takes to keep the setup working after a restart.
 
 Two PCs talking to each other sounds simple until you put yourself in charge of the packets.
 
 ## The setup
 
-The checked-in GNS3 project is `SDN-OpenFlow-Lab`. Its topology contains:
+The checked in GNS3 project is `SDN-OpenFlow-Lab`. Its topology contains:
 
 ```text
 PC1 (192.168.10.1/24) ─┐
@@ -29,7 +29,7 @@ The project file records GNS3 format `2.2.61` and the Docker image `gns3/openvsw
 
 ## What works so far
 
-My lab notes record a working controller-to-switch connection, bidirectional forwarding rules pushed with HTTP PUT requests and JSON, and successful traffic tests between the two hosts. They also record persistent OVS management networking, controller reconnection and flow restoration after an OVS restart, and a separate JSON backup of the rules.
+My lab notes record a working controller to switch connection, bidirectional forwarding rules pushed with HTTP PUT requests and JSON, and successful traffic tests between the two hosts. They also record persistent OVS management networking, controller reconnection and flow restoration after an OVS restart, and a separate JSON backup of the rules.
 
 These are results from the original lab session; I have not rerun the live checks for this README update. The original flow backup is not present in this checkout, so `examples/flow-rules.example.json` is a documentation template, not a claim that these exact flow IDs or port numbers were installed.
 
