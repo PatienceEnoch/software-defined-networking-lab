@@ -1,0 +1,27 @@
+{
+  "flow-node-inventory:flow": [
+    {
+      "id": "100",
+      "flow-name": "block-PC2-to-PC1-icmp",
+      "table_id": 0,
+      "priority": 200,
+      "hard-timeout": 0,
+      "idle-timeout": 0,
+      "match": {
+        "ethernet-match": {
+          "ethernet-type": {
+            "type": 2048
+          }
+        },
+        "ipv4-source": "192.168.10.2/32",
+        "ipv4-destination": "192.168.10.1/32",
+        "ip-match": {
+          "ip-protocol": 1
+        }
+      },
+      "instructions": {
+        "instruction": []
+      }
+    }
+  ]
+}
