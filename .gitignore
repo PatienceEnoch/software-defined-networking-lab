@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # OpenDaylight installation
 karaf-0.24.0/
 karaf-0.24.0.tar.gz
@@ -12,3 +13,33 @@ __pycache__/
 # Local secrets
 .env
 .env.*
+=======
+# Local controller backups and validation output
+backups/
+validation-runs/
+*.backup
+*.bak
+
+# Credentials and local environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# VM/container exports and local tool state
+*.qcow2
+*.vmdk
+*.ova
+*.ovpn
+.vscode/
+.idea/
+
+# Python and OS noise
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+Thumbs.db
+>>>>>>> origin/main
