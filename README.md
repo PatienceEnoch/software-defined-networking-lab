@@ -34,6 +34,8 @@ The first two rules forward traffic between the test hosts. Flow 100 takes prece
 
 The repo includes the [baseline flow snapshot](backups/br0-table0-working.json) and the [tested firewall policy](security/block-icmp.json).
 
+Read the [SDN field notes](docs/field-notes.md) for the troubleshooting sequence across the management network, controller API, and switch.
+
 ## Troubleshooting an HTTP 409
 
 While adding the policy, OpenDaylight returned HTTP 409. I corrected the table path under the switch node to use `flow-node-inventory:table=0/flow=100`. After the request succeeded, I checked the operational flow, dumped the switch's installed entries, and ran the ping test. That let me confirm the controller had accepted the change and the switch was enforcing it.
